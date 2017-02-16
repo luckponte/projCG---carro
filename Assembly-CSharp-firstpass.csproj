@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{327D0FE0-9AC3-E2CB-44A6-0FCCA69E9F26}</ProjectGuid>
+    <ProjectGuid>{5D5AAB2A-C10A-A8E1-A7E5-A545F3CFB858}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -298,7 +298,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="EasyRoads3D">
- <HintPath>C:/Users/douto_000/Desktop/Unesp/3Âº Ano 2Âº Semestre/CG/Trab CG/Standar Assets/Assets/EasyRoads3D Free/lib/EasyRoads3D.dll</HintPath>
+ <HintPath>C:/Users/douto_000/Desktop/Unesp/3ÂºAno2ÂºSemestre/CG/TrabCG/projCG---carro/Assets/EasyRoads3D Free/lib/EasyRoads3D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
