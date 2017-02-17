@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Vehicles.Car
 {
+   
     internal enum CarDriveType
     {
         FrontWheelDrive,
@@ -55,6 +57,9 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
 
+        public GameObject texto;
+        private Text kphDisplay;
+
         // Use this for initialization
         private void Start()
         {
@@ -69,8 +74,9 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
-        }
 
+            kphDisplay = texto.GetComponent<Text>();
+        }
 
         private void GearChanging()
         {
@@ -363,5 +369,12 @@ namespace UnityStandardAssets.Vehicles.Car
             }
             return false;
         }
+
+        private void Update()
+        {
+            int number = (int) CurrentSpeed;
+            kphDisplay.text = number + " km/h";
+        }
     }
+  
 }
