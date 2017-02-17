@@ -9,14 +9,44 @@ public class LimiteVelocidade : MonoBehaviour {
     private int pontocarteira;
     private Rigidbody fisicaCarro;
     private float velocidadeatual;
-    private bool jaLevou;
+    private int jaLevou;
 
     public GameObject pontoscarteira;
     private Text pontosDisplay;
 
     void OnTriggerStay(Collider trecho)
     {
-        if (!jaLevou) {
+        velocidadeatual = fisicaCarro.velocity.magnitude*2.23693629f;
+
+        if (velocidadeatual>limite)
+        {
+            if ((velocidadeatual > (limite + (limite * .50))) && (jaLevou==2))
+            {
+                pontocarteira -= 7;
+                jaLevou = 3;
+            }
+            else
+            {
+                if ((velocidadeatual > (limite + (limite * .20)) && velocidadeatual < (limite * (limite * .50))) && (jaLevou==1))
+                {    
+                    pontocarteira -= 5;
+                    jaLevou = 2;
+                }
+                else
+                {
+                    if(jaLevou==0)
+                    {    
+                        pontocarteira -= 4;
+                        jaLevou=1;
+                    }
+                }
+            }   
+            
+            pontosDisplay.text = "Pontos restantes na carteira: \n" + pontocarteira;
+        }
+
+
+        /*if (!jaLevou) {
             velocidadeatual = fisicaCarro.velocity.magnitude*2.23693629f;
             if(velocidadeatual > limite)
             {
@@ -36,17 +66,17 @@ public class LimiteVelocidade : MonoBehaviour {
             }
             //int number = (int)pontocarteira;
             pontosDisplay.text = "Pontos restantes na carteira: \n" + pontocarteira;
-            }
+        }*/
     }
     void OnTriggerExit( Collider trecho)
     {
-        if (!jaLevou)
-            jaLevou = false;
+        if (jaLevou!=0)
+            jaLevou = 0;
     }
 
     	// Use this for initialization
 	void Start () {
-        jaLevou = false;
+        jaLevou = 0;
         pontocarteira = 21;
         pontosDisplay = pontoscarteira.GetComponent<Text>();
         fisicaCarro = carro.GetComponent<Rigidbody>();
