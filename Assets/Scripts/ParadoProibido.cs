@@ -5,12 +5,10 @@ using UnityEngine.UI;
 public class ParadoProibido : MonoBehaviour {
     public GameObject carro;
 
-    private int pontocarteira;
     private Rigidbody fisicaCarro;
     private float velocidadeatual;
     private bool jaLevou;
 
-    public GameObject pontoscarteira;
     private Text pontosDisplay;
 
     void OnTriggerStay(Collider trecho)
@@ -20,11 +18,11 @@ public class ParadoProibido : MonoBehaviour {
             velocidadeatual = fisicaCarro.velocity.magnitude * 2.23693629f;
             if (velocidadeatual <= 0 )
             {
-                pontocarteira -= 4;
+                LimiteVelocidade.pontocarteira -= 4;
                 jaLevou = true;
             }
             //int number = (int)pontocarteira;
-            pontosDisplay.text = "Pontos restantes na carteira: \n" + pontocarteira;
+            pontosDisplay.text = "Pontos restantes na carteira: \n" + LimiteVelocidade.pontocarteira;
         }
     }
     void OnTriggerExit(Collider trecho)
@@ -36,8 +34,7 @@ public class ParadoProibido : MonoBehaviour {
     // Use this for initialization
     void Start () {
         jaLevou = false;
-        pontocarteira = 21;
-        pontosDisplay = pontoscarteira.GetComponent<Text>();
+        pontosDisplay = LimiteVelocidade.pontoscarteira.GetComponent<Text>();
         fisicaCarro = carro.GetComponent<Rigidbody>();
     }
 	

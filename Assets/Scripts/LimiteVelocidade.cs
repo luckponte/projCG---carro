@@ -6,12 +6,12 @@ public class LimiteVelocidade : MonoBehaviour {
     public float limite;
     public GameObject carro;
 
-    private int pontocarteira;
+    public static int pontocarteira = 21;
     private Rigidbody fisicaCarro;
     private float velocidadeatual;
     private int jaLevou;
 
-    public GameObject pontoscarteira;
+    public static GameObject pontoscarteira;
     private Text pontosDisplay;
 
     void OnTriggerStay(Collider trecho)

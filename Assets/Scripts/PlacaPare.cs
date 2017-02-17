@@ -5,12 +5,10 @@ using UnityEngine.UI;
 public class PlacaPare : MonoBehaviour {
     public GameObject carro;
 
-    private int pontocarteira;
     private Rigidbody fisicaCarro;
     private float velocidadeatual;
     private bool jaParou;
 
-    public GameObject pontoscarteira;
     private Text pontosDisplay;
 
     void OnTriggerStay(Collider trecho)
@@ -26,8 +24,8 @@ public class PlacaPare : MonoBehaviour {
     {
         if (!jaParou)
         {
-            pontocarteira -= 7;
-            pontosDisplay.text = "Pontos restantes na carteira: \n" + pontocarteira;
+            LimiteVelocidade.pontocarteira -= 7;
+            pontosDisplay.text = "Pontos restantes na carteira: \n" + LimiteVelocidade.pontocarteira;
         }
     }
 
@@ -35,8 +33,7 @@ public class PlacaPare : MonoBehaviour {
     void Start()
     {
         jaParou = false;
-        pontocarteira = 21;
-        pontosDisplay = pontoscarteira.GetComponent<Text>();
+        pontosDisplay = LimiteVelocidade.pontoscarteira.GetComponent<Text>();
         fisicaCarro = carro.GetComponent<Rigidbody>();
     }
 
