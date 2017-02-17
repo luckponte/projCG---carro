@@ -57,8 +57,10 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
 
-        public GameObject texto;
+        public GameObject speedometer;
+        public GameObject pontoscarteira;
         private Text kphDisplay;
+        private Text pontosDisplay;
 
         // Use this for initialization
         private void Start()
@@ -75,7 +77,8 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
 
-            kphDisplay = texto.GetComponent<Text>();
+            kphDisplay = speedometer.GetComponent<Text>(); // pega o texto do objeto, se não for assim, não atualiza o texto
+            pontosDisplay = pontoscarteira.GetComponent<Text>(); //mesma coisa aqui
         }
 
         private void GearChanging()
@@ -374,6 +377,7 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             int number = (int) CurrentSpeed;
             kphDisplay.text = number + " km/h";
+            //pontosDisplay.text = "Pontos restantes na carteira: \n" + number; pra mostrar os pontos na carteira, como vai usar trigger de gameobject, talvez não precise ficar no Update() e possa fazer um método como os outros, se não pôe aqui msm
         }
     }
   
