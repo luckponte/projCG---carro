@@ -58,9 +58,9 @@ namespace UnityStandardAssets.Vehicles.Car
         public float AccelInput { get; private set; }
 
         public GameObject speedometer;
-        public GameObject pontoscarteira;
+          //public GameObject pontoscarteira;
         private Text kphDisplay;
-        private Text pontosDisplay;
+          //private Text pontosDisplay;
 
         // Use this for initialization
         private void Start()
@@ -78,7 +78,7 @@ namespace UnityStandardAssets.Vehicles.Car
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
 
             kphDisplay = speedometer.GetComponent<Text>(); // pega o texto do objeto, se não for assim, não atualiza o texto
-            pontosDisplay = pontoscarteira.GetComponent<Text>(); //mesma coisa aqui
+              // pontosDisplay = pontoscarteira.GetComponent<Text>(); //mesma coisa aqui
         }
 
         private void GearChanging()

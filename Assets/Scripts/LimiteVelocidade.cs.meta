@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ef4d9208d2c762a42ac78a21c14366c1
+timeCreated: 1487303707
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - carro: {instanceID: 0}
+  - pontoscarteira: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
