@@ -16,7 +16,7 @@ public class LimiteVelocidade : MonoBehaviour {
 
     void OnTriggerStay(Collider trecho)
     {
-        velocidadeatual = trecho.rigidbody.velocity.magnitude*2.23693629f;
+        velocidadeatual = trecho.GetComponent<Rigidbody>().velocity.magnitude*2.23693629f;
 
         if (velocidadeatual>limite)
         {
